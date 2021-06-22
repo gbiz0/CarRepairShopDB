@@ -21,31 +21,31 @@ class Client:
 
     def get_cpf(self):
         return self.cpf
-        
+
     def set_cpf(self, cpf):
         self.cpf = cpf
 
     def get_address(self):
         return self.address
-        
+
     def set_address(self, address):
         self.address = address
 
     def get_phone_number(self):
         return self.phone_number
-        
+
     def set_phone_number(self, phone_number):
         self.phone_number = phone_number
 
 
     def add_car(self, car):
-            if car is not None:
-                try:
-                    self.cars.append(car)
-                except:
-                    print("Could not add car")
-            else:
-                  print("Could not add car: car does not exist")
+        if car is not None:
+            try:
+                self.cars.append(car)
+            except:
+                print("Could not add car")
+        else:
+              print("Could not add car: car does not exist")
 
     def remove_car(self, car):
         is_car_in_array = False
@@ -64,4 +64,4 @@ class Client:
                 print("Could not remove car: car is not in car array")
 
         else:
-                  print("Could not add car: car does not exist")
+            print("Could not add car: car does not exist")

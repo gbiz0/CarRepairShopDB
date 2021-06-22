@@ -4,8 +4,8 @@
 
 from sys import platform
 import sqlite3
-import entities.client
-import entities.car
+from entities.car import Car
+from entities.client import Client
 from db_handler import dbHandler
 
 if platform == "linux" or platform == "linux2":
@@ -15,6 +15,6 @@ elif platform == "win32":
 
 def main():
     main_db_handler.connect()
-    
+
 if __name__ == "__main__":
     main()
