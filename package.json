@@ -2,15 +2,15 @@
   "name": "carrepairshopdb",
   "version": "1.0.0",
   "description": "Car Repair database control tool",
-  "main": "index.js",
+  "start": "web/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ./web/src/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gbiz0/CarRepairShopDB.git"
   },
-  "author": "Gustavo Bizo Jardim, Josue Teodoro Moreira\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[é\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[D\u001b[C",
+  "author": "Gustavo Bizo Jardim, Josue Teodoro Moreira",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gbiz0/CarRepairShopDB/issues"

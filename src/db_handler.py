@@ -1,9 +1,8 @@
 # file: src/db_handler.py
-# author: Gustavo Bizo Jardim 
+# author: Gustavo Bizo Jardim, Josue Teodoro Moreira
 # date: Jun 21, 2021
 
 import sqlite3
-from sys import platform
 from os import path
 
 class dbHandler:
