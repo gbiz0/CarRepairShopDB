@@ -2,16 +2,25 @@
 # author: Gustavo Bizo Jardim 
 # date: Jun 21, 2021
 
-import sqlite3
 import entities.car
 
 class Client:
-    def __init__(self, name, cpf, address, phone_number):
+    def __init__(self, name, cpf, address, phone_number, db_handler):
         self.name = name
         self.cpf = cpf
         self.address = address
         self.phone_number = phone_number
         self.cars = [None]
+
+        if db_handler != None:
+            db_handler.load_script(
+                "db/script/client.sql",
+                "insert_new_client",
+                {
+                    "client_name": self.name,
+                    "client_address": self.address,
+                    "client_phone_number": self.phone_number
+                })
 
     def get_name(self):
         return self.name
@@ -36,7 +45,6 @@ class Client:
 
     def set_phone_number(self, phone_number):
         self.phone_number = phone_number
-
 
     def add_car(self, car):
         if car is not None:

@@ -2,19 +2,25 @@
 # author: Gustavo Bizo Jardim 
 # date: Jun 21, 2021
 
-from sys import platform
-import sqlite3
+from db_handler import dbHandler
 from entities.car import Car
 from entities.client import Client
-from db_handler import dbHandler
 
-if platform == "linux" or platform == "linux2":
-    main_db_handler = dbHandler("./db/test.db", 12345)
-elif platform == "win32":
-    main_db_handler = dbHandler("C:/Dev/test.db", 12345)
+main_db_handler = None
+test_client = None
 
 def main():
+    main_db_handler = dbHandler("db/test.db", 12345)
     main_db_handler.connect()
+
+    test_client = Client(
+                            "Josue Teodoro Moreira",
+                            "23423423434",
+                            "Nobody St. 2342",
+                            "(24) 999999999",
+                            main_db_handler
+                        )
+    main_db_handler.disconnect()
 
 if __name__ == "__main__":
     main()
