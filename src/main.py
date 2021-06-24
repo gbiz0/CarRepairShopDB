@@ -13,13 +13,11 @@ def main():
     main_db_handler = dbHandler("db/test.db", 12345)
     main_db_handler.connect()
 
-    test_client = Client(
-                            "Josue Teodoro Moreira",
-                            "23423423434",
-                            "Nobody St. 2342",
-                            "(24) 999999999",
-                            main_db_handler
-                        )
+    test_client = Client("Josua Teodoro Moreira", "23423423434",
+                         "Nobody St. 2342", "(24) 999999999", main_db_handler)
+    test_client.set_name("Joshua Theodore")
+    test_client.update()
+
     main_db_handler.disconnect()
 
 if __name__ == "__main__":

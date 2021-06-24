@@ -7,21 +7,19 @@
 /* create_client_table */
 create table client
 (
-    client_id serial,
+    client_id integer primary key,
     client_name varchar(255),
-    client_cpf varchar(11),
+    client_cpf char(11),
     client_address varchar(255),
-    client_phone_number varchar(14),
-    constraint pk_client primary key(client_id)
+    client_phone_number char(14)
 );
 
 /* create_car_table */
 create table car
 (
-    car_id serial,
-    car_brand varchar(60),
-    car_year int,
-    car_model varchar(50),
-    car_km int,
-    constraint pk_car primary key(car_id)
+    car_id integer primary key,
+    car_brand varchar(127),
+    car_year integer,
+    car_model varchar(127),
+    car_km integer
 );

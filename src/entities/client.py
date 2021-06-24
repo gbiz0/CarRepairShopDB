@@ -6,45 +6,85 @@ import entities.car
 
 class Client:
     def __init__(self, name, cpf, address, phone_number, db_handler):
+        self.id = None
         self.name = name
         self.cpf = cpf
         self.address = address
         self.phone_number = phone_number
         self.cars = [None]
+        self.db_handler = db_handler
+        self.should_update = False
 
         if db_handler != None:
-            db_handler.load_script(
-                "db/script/client.sql",
-                "insert_new_client",
-                {
-                    "client_name": self.name,
-                    "client_address": self.address,
-                    "client_phone_number": self.phone_number
-                })
+            try:
+                db_handler.load_script("db/script/client.sql", "insert_new_client",
+                                       {
+                                           "name": self.get_name(),
+                                           "cpf": self.get_cpf(),
+                                           "address": self.get_address(),
+                                           "phone_number": self.get_phone_number()
+                                       })
+
+                self.id = self.get_id()
+            except:
+                print("Could not create new client")
+
+    def update(self):
+        if self.db_handler != None and self.should_update == True:
+            try:
+                self.db_handler.load_script("db/script/client.sql", "update_client",
+                                            {
+                                                "name": self.get_name(),
+                                                "cpf": self.get_cpf(),
+                                                "address": self.get_address(),
+                                                "phone_number": self.get_phone_number(),
+                                                "id": self.get_id()
+                                            })
+                self.should_update = False
+            except:
+                print("Could not update client")
+
+    def get_id(self):
+        if self.id != None:
+            return self.id
+        else:
+            try:
+                self.id = self.db_handler.load_script("db/script/client.sql", "get_client_id",
+                                                      { "cpf": self.get_cpf() })[0]
+            except:
+                print("Could not get client id")
 
     def get_name(self):
         return self.name
 
     def set_name(self, name):
-        self.name = name
+        if self.name != name:
+            self.name = name
+            self.should_update = True
 
     def get_cpf(self):
         return self.cpf
 
     def set_cpf(self, cpf):
-        self.cpf = cpf
+        if self.cpf != cpf:
+            self.cpf = cpf
+            self.should_update = True
 
     def get_address(self):
         return self.address
 
     def set_address(self, address):
-        self.address = address
+        if self.address != address:
+            self.address = address
+            self.should_update = True
 
     def get_phone_number(self):
         return self.phone_number
 
     def set_phone_number(self, phone_number):
-        self.phone_number = phone_number
+        if self.phone_number != phone_number:
+            self.phone_number = phone_number
+            self.should_update = True
 
     def add_car(self, car):
         if car is not None:

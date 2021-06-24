@@ -17,6 +17,7 @@ class dbHandler:
 
         script_buffer = ""
         is_reading = False
+        should_return = False
         for line in script_file:
             if script_name in line:
                 is_reading = True
@@ -25,15 +26,25 @@ class dbHandler:
 
                 is_reading = False
             elif is_reading:
+                if "select" in line or "SELECT" in line:
+                    should_return = True
+
                 script_buffer = script_buffer + line
         script_file.close()
 
+        return_buffer = None
         if sqlite3.complete_statement(script_buffer):
-            if script_var_list == None:
-                self.cursor.execute(script_buffer)
-            else:
-                self.cursor.execute(script_buffer, script_var_list)
+            try:
+                if script_var_list == None:
+                    return_buffer = self.cursor.execute(script_buffer)
+                else:
+                    return_buffer = self.cursor.execute(script_buffer, script_var_list)
+            except sqlite3.Error as e:
+                print("Could not run script:", script_name, "->", e.args[0])
             self.connection.commit()
+
+        if should_return:
+            return return_buffer.fetchall()
 
     def connect(self):
         is_file_new = True
@@ -41,7 +52,9 @@ class dbHandler:
             is_file_new = False
 
         try:
+            sqlite3.paramstyle = "named"
             self.connection = sqlite3.connect(self.file_path)
+            self.connection.row_factory = lambda cursor, row: row[0]
             self.cursor = self.connection.cursor()
 
             if is_file_new:
