@@ -1,36 +1,50 @@
+/* Cadastrar Cliente */
+
 * {
     margin: 0px;
     padding: 0px;
     font-family: "Rationale", sans-serif;
 }
+h1{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    font-family: Rationale;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 83px;
+
+    color: #AC62F7;
+}
 
 body{
-    width: 100vw;
+    background: #1E1E1E;
+}
+
+
+label{
+    color: white;
+    font-family: Rationale;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+
     position: relative;
-    background-color: #1E1E1E;
-    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    left: 61px;
 }
+input{
+    position: relative;
+    width: 50rem;
+    height: 1.5rem;
+    left: 61px;
 
-h1{
-    color: white;
-    font-size: 4rem;
-    font-weight: 700;
-    text-align: center;
-}
-
-b{
-    color: #AC62F6;
-}
-
-p{
-    font-size: 48px;
-    color: white;
-    text-align: center;
-    position: absolute;
-    width: 514px;
-    height: 80px;
-    left: 425px;
-    top: 381px;
+    font-size: 1.9rem;
 }
 
 .nav{
@@ -45,8 +59,8 @@ p{
 
     position: absolute;
     height: 80px;
-    left: 325px;
-    top: 505px;
+    left: 30rem;
+    top: 600px;
 
 }
 
