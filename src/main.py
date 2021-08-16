@@ -1,26 +1,15 @@
-# file: src/main.py
-# author: Gustavo Bizo Jardim 
-# date: Jun 21, 2021
+# file: src/main.py 
+# author: Josue Teodoro Moreira <teodoro.josue@protonmail.ch>
+# date: Jun 27, 2021
 
-from db_handler import dbHandler
-from entities.car import Car
-from entities.client import Client
-
-main_db_handler = None
-test_client = None
+from db_handler import db_handler
+from entity_handler import entity_handler
 
 def main():
-    main_db_handler = dbHandler("db/test.db", 12345)
-    main_db_handler.connect()
+  _db_handler = db_handler("db/", "test", "jhon")
+  _entity_handler = entity_handler(_db_handler)
 
-    test_client = Client(
-                            "Josue Teodoro Moreira",
-                            "23423423434",
-                            "Nobody St. 2342",
-                            "(24) 999999999",
-                            main_db_handler
-                        )
-    main_db_handler.disconnect()
+  _db_handler.disconnect()
 
 if __name__ == "__main__":
-    main()
+  main()
