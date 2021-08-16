@@ -59,3 +59,7 @@ where car_id  = :id;
 /* count_cars */
 select count(*)
 from car;
+
+/* delete_car_with_id */
+delete from car
+where car_id = :id;

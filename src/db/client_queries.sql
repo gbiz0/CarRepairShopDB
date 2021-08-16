@@ -53,3 +53,7 @@ where client_id         = :id;
 /* count_clients */
 select count(*)
 from client;
+
+/* delete_client_with_id */
+delete from client
+where client_id = :id;

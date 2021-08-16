@@ -22,7 +22,7 @@ class db_handler:
     self.load_sql_queries("src/db/client_queries.sql")
     self.load_sql_queries("src/db/car_queries.sql")
 
-    sqlite3.paramstyle = 'named'
+    sqlite3.paramstyle = "named"
     self.connection = None
     self.cursor = None
     self.connect()
@@ -97,64 +97,3 @@ class db_handler:
 
   def disconnect(self):
     self.connection.close()
-
-class entity_handler:
-  def __init__(self, db_handler):
-    self.clients = []
-    self.cars = []
-    self.db_handler = db_handler
-    
-    if not db_handler.is_new():
-      if self.db_handler != None:
-        if self.db_handler.run_sql_query("count_clients", None)[0][0] > 0:
-          self.load_clients()
-        if self.db_handler.run_sql_query("count_cars", None)[0][0] > 0:
-          self.load_cars()
-
-  def set_db_handler(self, db_handler):
-    if self.db_handler != db_handler:
-      self.db_handler = db_handler
-      for client in self.clients:
-        client.set_db_handler(db_handler)
-      for car in self.cars:
-        car.set_db_handler(db_handler)
-
-  def load_clients(self):
-    loaded_clients = self.db_handler.run_sql_query("get_all_clients", None)
-    for c in loaded_clients:
-      self.clients.append(client(c[0], c[1], c[2], c[3], c[4], self.db_handler))
-
-  def load_cars(self):
-    loaded_cars = self.db_handler.run_sql_query("get_all_cars", None)
-    for c in loaded_cars:
-      self.cars.append(car(c[0], c[1], c[2], c[3], c[4], c[5], self.db_handler))
-
-  def update(self):
-    for client in self.clients:
-      client.update()
-    for car in self.cars:
-      car.update()
-
-  def add_client(self, name, cpf, address, phone_number):
-    self.clients.append(client(0, name, cpf, address, phone_number, self.db_handler))
-    return self.clients[-1].get_id()
-
-  def add_car(self, brand, year, model, km, owner):
-    self.cars.append(car(0, brand, year, model, km, owner, self.db_handler))
-    return self.cars[-1].get_id()
-
-  def get_client(self, id):
-    for client in self.clients:
-      if client.get_id() == id:
-        return client
-
-    print("There's no client with id", id)
-    return None
-
-  def get_car(self, id):
-    for car in self.cars:
-      if car.get_id() == id:
-        return car
-
-    print("There's no car with id", id)
-    return None

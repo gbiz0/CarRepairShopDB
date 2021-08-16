@@ -16,7 +16,7 @@ class car:
 
   def insert_car(self):
     if self.get_id() == 0 and self.get_db_handler() != None:
-      self.db_handler.run_sql_query("insert_new_client",
+      self.db_handler.run_sql_query("insert_new_car",
                                     {
                                       "brand": self.get_brand(),
                                       "year": self.get_year(),
