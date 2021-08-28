@@ -3,9 +3,10 @@
 # date: Jun 27, 2021
 
 class car:
-  def __init__(self, id, brand, year, model, km, owner, db_handler):
+  def __init__(self, id, brand, plate, year, model, km, owner, db_handler):
     self.id = id
     self.brand = brand
+    self.plate = plate
     self.year = year
     self.model = model
     self.km = km
@@ -19,6 +20,7 @@ class car:
       self.db_handler.run_sql_query("insert_new_car",
                                     {
                                       "brand": self.get_brand(),
+                                      "plate": self.get_plate(),
                                       "year": self.get_year(),
                                       "model": self.get_model(),
                                       "km": self.get_km(),
@@ -29,6 +31,7 @@ class car:
       self.id = self.db_handler.run_sql_query("get_car_id",
                                               {
                                                 "brand": self.get_brand(),
+                                                "plate": self.get_plate(),
                                                 "year": self.get_year(),
                                                 "model": self.get_model(),
                                                 "km": self.get_km(),
@@ -40,6 +43,7 @@ class car:
       self.db_handler.run_sql_query("update_car",
                                     {
                                       "brand": self.get_brand(),
+                                      "plate": self.get_plate(),
                                       "year": self.get_year(),
                                       "model": self.get_model(),
                                       "km": self.get_km(),
@@ -68,6 +72,14 @@ class car:
   def set_brand(self, brand):
     if self.brand != brand:
       self.brand = brand
+      self.should_update = True
+
+  def get_plate(self):
+    return self.plate
+
+  def set_plate(self, plate):
+    if self.plate != plate:
+      self.plate = plate
       self.should_update = True
 
   def get_year(self):

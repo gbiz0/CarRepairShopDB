@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sistema de Cadastro</title>
+
+    <link rel = "stylesheet" href = "./style/index.css">
+    <link rel = "stylesheet" href = "./style/register.css">
+  </head>
+  <body>
+    <header>
+      <h1>Sistema de Cadastro</h1>
+      <p>Oficina Mecânica do Bizo</p>
+    </header>
+    <form method = "post" action = "/create-service">
+      <h1>Cliente</h1>
+      
+      <label for = "name">Nome:</label>
+      <input type = "text" name = "name">
+
+      <label for = "cpf">CPF:</label>
+      <input type = "number" name = "cpf">
+
+      <label for = "address">Endereço:</label>
+      <input type = "text" name = "address">
+
+      <label for = "phone">Telefone:</label>
+      <input type = "number" name = "phone">
+
+      <h1>Carro</h1>
+      
+      <label for = "brand">Marca:</label>
+      <input type = "text" name = "brand">
+
+      <label for = "plate">Placa:</label>
+      <input type = "text" name = "plate">
+
+      <label for = "year">Ano:</label>
+      <input type = "text" name = "year">
+
+      <label for = "model">Modelo:</label>
+      <input type = "text" name = "model">
+
+      <label for = "km">Quilometragem:</label>
+      <input type="number" name = "km">
+
+      <h1>Serviço</h1>
+
+      <label for = "problem">Problema:</label>
+      <input type = "text" name = "problem"/>
+
+      <label for = "price">Preço:</label>
+      <input tipe = "number" name = "price"/>
+
+      <div id = "actions">
+        <a class = "button" href = "./index.html">
+          <p>CANCELAR</p>
+        </a>
+        <input class = "button" id = "submit-button" type = "submit" value = "CADASTRAR"/>
+      </div>
+    </form>
+  </body>
+</html>

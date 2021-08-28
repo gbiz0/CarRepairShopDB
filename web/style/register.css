@@ -1,0 +1,93 @@
+form
+{
+  width: 95%;
+
+  margin-left: 1.5%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form h1
+{
+  font-size: 2rem;
+}
+
+form label
+{
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  
+  font-size: 1.3rem;
+  color: var(--white);
+}
+
+form input
+{
+  height: 2rem;
+
+  border-radius: 5px;
+}
+
+form #actions
+{
+  width: 80%;
+  margin-left: 10%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.button
+{
+  width: 13rem;
+  height: 3rem;
+
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  background-color: var(--purple);
+  text-decoration: none;
+
+  color: var(--white);
+
+  font-family: Rationale;
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  transition: 0.5s;
+}
+
+#submit-button
+{
+  display: block;
+  flex-direction: initial;
+}
+
+#submit-button:hover
+{
+  cursor: pointer;
+}
+
+.button:hover
+{
+  background-color: var(--purple2);
+}
+
+.button p
+{
+  color: var(--white);
+
+  font-size: 1.6rem;
+  font-weight: 700;
+}

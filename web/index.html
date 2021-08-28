@@ -1,79 +1,29 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html>
   <head>
     <meta charset = "utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rationale&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sistema de Cadastro</title>
 
-    <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
-		<script type="text/javascript">
-			jQuery(window).load(function($){
-				atualizaRelogio();
-			});
-		</script>
-    <title>Start page</title>
+    <link rel = "stylesheet" href = "./style/index.css"/>
+    <link rel = "stylesheet" href = "./style/page-landing.css"/>
   </head>
-
   <body>
-  <main id="inicial">
-
-    <div id="page-start">
-      <h1>Bem-vindo (a) ao <b>Sistema de Cadastro</b></h1>
-    
-      <p>O que deseja fazer?</p>
-    </div>
-
-    <div  id = "data-hora">
-      <output id="hora"></output>				
-    </div>	
-    <div>
-      <output id="data"></output>
-    </div>
-
-    <script>
-      function atualizaRelogio(){ 
-    var momentoAtual = new Date();
-    
-    var vhora = momentoAtual.getHours();
-    var vminuto = momentoAtual.getMinutes();
-    var vsegundo = momentoAtual.getSeconds();
-    
-    var vdia = momentoAtual.getDate();
-    var vmes = momentoAtual.getMonth() + 1;
-    var vano = momentoAtual.getFullYear();
-    
-    if (vdia < 10){ vdia = "0" + vdia;}
-    if (vmes < 10){ vmes = "0" + vmes;}
-    if (vhora < 10){ vhora = "0" + vhora;}
-    if (vminuto < 10){ vminuto = "0" + vminuto;}
-    if (vsegundo < 10){ vsegundo = "0" + vsegundo;}
-
-    dataFormat = vdia + " / " + vmes + " / " + vano;
-    horaFormat = vhora + " : " + vminuto + " : " + vsegundo;
-
-    document.getElementById("data").innerHTML = dataFormat;
-    document.getElementById("hora").innerHTML = horaFormat;
-
-    setTimeout("atualizaRelogio()",1000);
-}
-    </script>
-    
-    <header class="menu">
-      <ul class="nav">
-        <li>
-          <a href="cadastro.html">Cadastrar</a>
-        </li>
-        <li>
-          <a href="consultar.html">Consultar</a>
-        </li>
-        <li>
-          <a href="">Sair</a>
-        </li>
-      </ul>  
+    <header>
+      <h1>Sistema de Cadastro</h1>
+      <p>Oficina Mecânica do Bizo</p>
     </header>
-
+    <main>
+        <a class = "button" href = "./register.html">
+          <p>CADASTRAR</p>
+        </a>
+        <a class = "button" href = "./consult.html">
+          <p>CONSULTAR</p>
+        </a>
+        <a class = "button" href = "exit">
+          <p>SAIR</p>
+        </a>
+      </div>
+    </main>
   </body>
 </html>

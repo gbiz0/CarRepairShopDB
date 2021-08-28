@@ -9,6 +9,7 @@ create table car
 (
   car_id    integer      primary key unique,
   car_brand varchar(127) not null,
+  car_plate char(7)      not null,
   car_year  integer      not null,
   car_model varchar(127) not null,
   car_km    integer      not null,
@@ -20,6 +21,7 @@ create table car
 insert into car
 (
   car_brand,
+  car_plate,
   car_year,
   car_model,
   car_km,
@@ -28,6 +30,7 @@ insert into car
 values
 (
   :brand,
+  :plate,
   :year,
   :model,
   :km,
@@ -38,6 +41,7 @@ values
 select car_id
 from car
 where car_brand = :brand and
+      car_plate = :plate and
       car_year  = :year  and
       car_model = :model and
       car_km    = :km    and
@@ -50,6 +54,7 @@ from car;
 /* update_car */
 update car
 set car_brand = :brand,
+    car_plate = :plate,
     car_year  = :year,
     car_model = :model,
     car_km    = :km,

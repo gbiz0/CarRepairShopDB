@@ -10,8 +10,8 @@ import gc
 class entity_handler:
   def __init__(self, db_handler):
     self.db_handler = db_handler
-    self.clients = [client]
-    self.cars = [car]
+    self.clients = []
+    self.cars = []
 
     if not self.db_handler.is_new():
       self.load_clients()
@@ -46,10 +46,10 @@ class entity_handler:
     self.clients.append(client(id, name, cpf, address, phone_number, self.db_handler))
 
     return self.clients[-1]
-  
+
   def remove_client(self, id):
     client_with_id = self.get_client(id)
-    
+
     if client_with_id != None:
       self.db_handler.run_sql_query("delete_client_with_id", { "id": id })
 
@@ -66,13 +66,13 @@ class entity_handler:
     else:
       return None
 
-  def add_car(self, brand, year, model, km, owner):
-    self.cars.append(car(0, brand, year, model, km, owner, self.db_handler))
+  def add_car(self, brand, plate, year, model, km, owner):
+    self.cars.append(car(0, brand, plate, year, model, km, owner, self.db_handler))
 
     return self.cars[-1]
 
-  def add_car_with_id(self, brand, year, model, km, owner):
-    self.cars.append(car(0, brand, year, model, km, owner, self.db_handler))
+  def add_car_with_id(self, brand, plate, year, model, km, owner):
+    self.cars.append(car(0, brand, plate, year, model, km, owner, self.db_handler))
 
     return self.cars[-1]
 

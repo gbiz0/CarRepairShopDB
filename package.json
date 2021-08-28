@@ -11,12 +11,13 @@
     "url": "git+https://github.com/gbiz0/CarRepairShopDB.git"
   },
   "author": "Gustavo Bizo Jardim, Josue Teodoro Moreira",
-  "license": "ISC",
+  "license": "GPL3",
   "bugs": {
     "url": "https://github.com/gbiz0/CarRepairShopDB/issues"
   },
   "homepage": "https://github.com/gbiz0/CarRepairShopDB#readme",
   "dependencies": {
-    "electron": "^13.1.4"
+    "electron": "^13.1.4",
+    "express": "^4.17.1"
   }
 }
