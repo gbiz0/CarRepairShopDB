@@ -2,42 +2,28 @@ const electron = require("electron");
 const url = require("url");
 const path = require("path");
 
-const
-{
-    app,
-    BrowserWindow
-} = electron;
+const { PythonShell } = require("python-shell");
+const serverShell = PythonShell.run("src/main.py", { mode: "text" }, (err, results) => {
+    if (err)
+        throw err;
+    
+    console.log(results);
+});
+
+const { app, BrowserWindow } = electron;
 
 let mainWindow;
-app.on(
-    "ready",
-    function()
-    {
-        mainWindow = new BrowserWindow(
-            {
-                webPreferences:
-                {
-                    nodeIntegration: true
-                }
-            }
-        );
+app.on( "ready", () => {
+    setTimeout(() => {
+        mainWindow = new BrowserWindow({ webPreferences: { nodeIntegration: true }});
         
         mainWindow.setMenuBarVisibility(false);
-        mainWindow.loadURL(
-            url.format(
-                {
-                    pathname: path.join(__dirname, "../index.html"),
-                    protocol: "file:",
-                    slashes: true
-                }
-            )
-        );
-        mainWindow.on(
-            "closed",
-            function()
-            {
-                mainWindow = null;
-            }
-        )
-    }
-);
+        mainWindow.loadURL("http://127.0.0.1:3001/");
+        
+        mainWindow.on("closed", () => {
+            mainWindow = null;
+            serverShell.childProcess.kill("SIGINT");
+            app.quit()
+        });
+    }, 2000);
+});
