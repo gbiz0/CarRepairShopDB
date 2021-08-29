@@ -21,6 +21,7 @@ class db_handler:
     self.sql_queries = {}
     self.load_sql_queries("src/db/client_queries.sql")
     self.load_sql_queries("src/db/car_queries.sql")
+    self.load_sql_queries("src/db/service_queries.sql")
 
     sqlite3.paramstyle = "named"
     self.connection = None
@@ -92,6 +93,7 @@ class db_handler:
       if self.is_db_new:
         self.run_sql_query("create_client_table", None)
         self.run_sql_query("create_car_table", None)
+        self.run_sql_query("create_service_table", None)
     except sqlite3.Error as err:
       print("Could not connect to database:", err.args[0])
 
