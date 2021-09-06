@@ -1,24 +1,77 @@
 {
-  "name": "carrepairshopdb",
-  "version": "1.0.0",
-  "description": "Car Repair database control tool",
-  "start": "web/src/index.js",
-  "scripts": {
-    "start": "electron ./web/src/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gbiz0/CarRepairShopDB.git"
-  },
-  "author": "Gustavo Bizo Jardim, Josue Teodoro Moreira",
-  "license": "GPL3",
-  "bugs": {
-    "url": "https://github.com/gbiz0/CarRepairShopDB/issues"
-  },
-  "homepage": "https://github.com/gbiz0/CarRepairShopDB#readme",
-  "dependencies": {
-    "electron": "^13.1.4",
-    "express": "^4.17.1",
-    "python-shell": "^3.0.0"
-  }
+    "name": "CarRepairShopDB",
+    "version": "1.0.0",
+    "description": "Car repair shop database control tool",
+    "main": "./web/src/index.js",
+    "start": "./web/src/index.js",
+    "build": {
+        "appId": "com.J0sueTM.CarRepairShopDB",
+        "productName": "CarRepairShopDB",
+        "files":
+        [
+            "./web/src/index.js",
+            "./web/*.html",
+            "./web/style/*.css"
+        ],
+        "extraFiles":
+        [
+            "./web/res/Rationale/*",
+            "./src/*.py",
+            "./src/db/*.sql",
+            "./web/*.html",
+            "./web/style/*.css"
+        ],
+        "directories":
+        {
+            "output": "./bin"
+        },
+        "linux":
+        {
+            "target":
+            [
+                "zip"
+            ]
+        },
+        "mac":
+        {
+            "target":
+            [
+                "zip"
+            ]
+        },
+        "win":
+        {
+            "target":
+            [
+                "zip"
+            ]
+        }
+    },
+    "scripts": {
+        "start": "electron ./web/src/",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder --projectDir=./"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gbiz0/CarRepairShopDB.git"
+    },
+    "author":
+    [
+        "Gustavo Bizo Jardim",
+        "Josue Teodoro Moreira"
+    ],
+    "license": "GPL3",
+    "bugs": {
+        "url": "https://github.com/gbiz0/CarRepairShopDB/issues"
+    },
+    "homepage": "https://github.com/gbiz0/CarRepairShopDB#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "python-shell": "^3.0.0"
+    },
+    "devDependencies": {
+        "electron": "^14.0.0",
+        "electron-builder": "^22.11.7"
+    }
 }

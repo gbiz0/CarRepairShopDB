@@ -1,5 +1,7 @@
 node_modules/*
 db/*.db
 *.pyc
+bin/*
+dist/*
 
 *#*#*.*
