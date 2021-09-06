@@ -14,14 +14,18 @@
       <p>Oficina Mecânica do Bizo</p>
     </header>
     <form method = "get" action = "/search">
-      <div id = "upper">
-        <input type = "text" id = ""name = "search"/>
-        <input class = "button" id = "submit-button" type = "submit" value = "BUSCAR"/>
-      </div>
-      
-      <a class = "button" href = "/">
-        <p>VOLTAR</p>
-      </a>
+      <input type = "text" id = ""name = "search"/>
+      <input class = "button" id = "submit-button" type = "submit" value = "BUSCAR"/>
     </form>
+    <div id = "services">
+      {% for service in services %}
+      <div class = "service-panel">
+        <p>{{ service.get_problem() }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <a class = "button" href = "/">
+      <p>VOLTAR</p>
+    </a>
   </body>
 </html>

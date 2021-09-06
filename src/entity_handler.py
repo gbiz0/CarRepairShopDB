@@ -33,7 +33,7 @@ class entity_handler:
   def load_services(self):
     loaded_services = self.db_handler.run_sql_query("get_all_services", None)
     for service in loaded_services:
-      self.add_service_with_id(service[0], service[1], service[3], service[4])
+      self.add_service_with_id(service[0], service[1], service[2], service[3], service[4])
 
   # client
   def get_client(self, id):
@@ -115,6 +115,9 @@ class entity_handler:
     self.services.append(service(id, problem, price, car, client, self.db_handler))
 
     return self.services[-1]
+
+  def get_all_services(self):
+    return self.services
 
   def remove_service(self, id):
     service_with_id = self.get_service(id)

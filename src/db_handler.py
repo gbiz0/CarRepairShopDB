@@ -86,7 +86,7 @@ class db_handler:
       self.is_db_new = True
 
     try:
-      self.connection = sqlite3.connect(self.file_path)
+      self.connection = sqlite3.connect(self.file_path, check_same_thread=False)
       self.cursor = self.connection.cursor()
 
       # create new tables if new.

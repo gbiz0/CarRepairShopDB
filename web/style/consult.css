@@ -4,9 +4,10 @@ form
 
   margin-top: 1rem;
   margin-left: 1.5%;
+  margin-bottom: 1rem;
   
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
 }
@@ -25,18 +26,7 @@ form label
   color: var(--white);
 }
 
-form #upper
-{
-  width: 50%;
-  margin-left: 25%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-}
-
-form #upper input
+form input
 {
   width: 15rem;
   height: 2.5rem;
@@ -44,25 +34,6 @@ form #upper input
   margin: 0px;
 
   border-radius: 5px;
-}
-
-form #upper #submit-button
-{
-  width: 8rem;
-  height: 2.8rem;
-
-  margin-left: 1rem;
-}
-
-form #actions
-{
-  width: 80%;
-  margin-left: 10%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  text-align: center;
 }
 
 .button
@@ -93,8 +64,14 @@ form #actions
   transition: 0.5s;
 }
 
-#submit-button
+form #submit-button
 {
+  width: 8rem;
+  height: 2.8rem;
+
+  margin-top: 0px;
+  margin-left: 1rem;
+  
   display: block;
   flex-direction: initial;
 }
@@ -115,4 +92,32 @@ form #actions
 
   font-size: 1.6rem;
   font-weight: 700;
+}
+
+#services
+{
+  width: 95%;
+  
+  margin-left: 2.5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.service-panel
+{
+  width: 100%;
+  height: 6rem;
+
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  
+  background-color: var(--white);
+}
+
+.service-panel p
+{
+  color: var(--black)
 }
